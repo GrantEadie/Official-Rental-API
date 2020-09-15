@@ -27,26 +27,6 @@ function getElements(response){
     // lisitng array from API call will be a variable number of elements from 1-10 //
     
     
-    // function writeListing(property) {
-    //   let html = '';
-    //   html += `<div class="carousel-item active" >`;
-    //   html += `<div class='card search-card col-6'><div class='card-header'>${property[0].address}</div>`;
-    //   html += `<div class='card-body'> Monthly Rent: ${property[0].price}</div>`;
-    //   html += `<p>${property[0].bedrooms}</p>`;
-    //   html += `</div></div>`;
-    //   for(let i = 1; i <= response.listings.length; i++) {
-    //     html += `<div class="carousel-item " >`;
-    //     html += `<div class='card search-card col-6'><div class='card-header'>${property[i].address}</div>`;
-    //     html += `<div class='card-body'> Monthly Rent: ${property[i].price} </div>`;
-    //     html += `<p>${property[i].bedrooms}</p>`;
-    //     html += `</div></div>`;
-    //   }
-    //   //console.log(html);
-    //   $('.carousel-inner').html(html);
-      
-    // } 
-    
-    
     
     
     
@@ -81,7 +61,7 @@ function getElements(response){
 $(document).ready(function () {
   $("#executeButton").click(function () {
     // test input
-    let neighborhoodInput = "boise";
+    let neighborhoodInput = "laurelhurst";
 
     // let neighborhoodInput = $("#neighborhood");
     // findNeighborhoodCoordinates(neighborhoodInput);

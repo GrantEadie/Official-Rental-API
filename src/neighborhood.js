@@ -27,6 +27,10 @@ export let neighborhoods = {
     latitude : 45.518169,
     longitude :  -122.648421
   },
+  centennial: {
+    latitude : 45.505278,
+    longitude :  -122.499159
+  },
   grantPark: {
     latitude : 45.536569,
     longitude : -122.628100
@@ -75,9 +79,17 @@ export let neighborhoods = {
     latitude : 45.567868,
     longitude : -122.666359
   },
+  pleasantValley: {
+    latitude : 45.472064,
+    longitude : -122.505343
+  },
   portsmouth: {
     latitude : 45.589405,
     longitude: -122.719251
+  },
+  powellhurst: {
+    latitude : 45.492284,
+    longitude: -122.538667
   },
   richmond: {
     latitude : 45.503553,
@@ -98,6 +110,10 @@ export let neighborhoods = {
   universityPark: {
     latitude : 45.581086,
     longitude: -122.730066
+  },
+  wilkes: {
+    latitude : 45.540744,
+    longitude :  -122.503330
   },
   woodlawn: {
     latitude : 45.570512,
