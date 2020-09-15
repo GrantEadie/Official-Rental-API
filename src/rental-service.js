@@ -1,7 +1,7 @@
 export default class RentalService {
   static getRentals(){
     const apiKey = `${process.env.API_KEY}`;
-    return fetch(`https://realty-mole-property-api.p.rapidapi.com/rentalPrice?compCount=5&squareFootage=1600&bathrooms=2&address=5500 Grand Lake Drive San Antonio TX&bedrooms=4&propertyType=Apartment`, {
+    return fetch(`https://realty-mole-property-api.p.rapidapi.com/rentalPrice?compCount=5&squareFootage=1600&bathrooms=2&latitude=45.516933&longitude=-122.643568&propertyType=Apartment&bedrooms=4`, {
       "method": "GET",
       "headers": {
         "x-rapidapi-host": "realty-mole-property-api.p.rapidapi.com",
