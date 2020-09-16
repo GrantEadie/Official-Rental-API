@@ -12,7 +12,15 @@ function getElements(response){
     // $("#outputRentHigh").text(response.rentRangeHigh);
     $("#outputListing1Address").text("Address: " + response.listings[0].address);
     $("#outputListing1Price").text("Price: " + response.listings[0].price);
-    $("#outputListing1SquareFootage").text("Square Footage: " + response.listings[0].squareFootage);
+    if (response.listings[0].squareFootage.length > 0) {
+      $("#outputLIstings1SquareFootage").show();
+      $("#outputListing1SquareFootage").text("Square Footage: " + response.listings[0].squareFootage);
+    } else {
+      $("#outputLIstings1SquareFootage").hide();
+      
+    }
+    // let string = response.listings[0].squareFootage.toString("");
+    console.log((response.listings[0].squareFootage).length);
     $("#outputListing1DaysOnMarket").text("This property has been on the market for " + response.listings[0].daysOld + " days.");
     $("#outputListing1Bedrooms").text("Bedrooms: " + response.listings[0].bedrooms);
     $("#outputListing1Bathrooms").text("Bathrooms: " + response.listings[0].bathrooms);
@@ -55,14 +63,13 @@ $(document).ready(function () {
   $("body").fadeIn(2000);
 
   let newNeighborhoods = "";
-  let reply_click = function()
-    {
-      newNeighborhoods = this.id;
-      $(".cityInfo").hide()
-      $("#neighborhood").html((((this.id).split(/(?=[A-Z])/)).join(' ')).toLowerCase() + "<hr>");
-      $(".cityInfo").fadeIn(1000);
-      $("hr").fadeIn(4000);
-    }
+  let reply_click = function() {
+    newNeighborhoods = this.id;
+    $(".cityInfo").hide();
+    $("#neighborhood").html((((this.id).split(/(?=[A-Z])/)).join(' ')).toLowerCase() + "<hr>");
+    $(".cityInfo").fadeIn(1000);
+    $("hr").fadeIn(4000);
+  };
 
   getNeighborhoods(reply_click);
 
