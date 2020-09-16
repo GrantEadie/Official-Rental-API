@@ -3,67 +3,63 @@ import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/styles.css';
 import RentalService from './rental-service.js';
-import {neighborhoods} from './neighborhood.js';
-import {getNeighborhoods} from './selector.js';
+import { neighborhoods } from './neighborhood.js';
+import { getNeighborhoods } from './selector.js';
 
-function getElements(response) {
-  if (response) {
-    // $("#outputRentLow").text(response.rentRangeLow);
-    // $("#outputRentHigh").text(response.rentRangeHigh);
-    $("#outputListing1Address").text("Address: " + response.listings[0].address);
-    $("#outputListing1Price").text("Price: " + response.listings[0].price);
-    if (response.listings[0].squareFootage.length > 0) {
-      $("#outputLIstings1SquareFootage").show();
-      $("#outputListing1SquareFootage").text("Square Footage: " + response.listings[0].squareFootage);
-    } else {
-      $("#outputLIstings1SquareFootage").hide();
-      
-    }
-    // let string = response.listings[0].squareFootage.toString("");
-    console.log((response.listings[0].squareFootage).length);
-    $("#outputListing1DaysOnMarket").text("This property has been on the market for " + response.listings[0].daysOld + " days.");
-    $("#outputListing1Bedrooms").text("Bedrooms: " + response.listings[0].bedrooms);
-    $("#outputListing1Bathrooms").text("Bathrooms: " + response.listings[0].bathrooms);
+// function getElements(response) {
+//   if (response) {
+//     // // $("#outputRentLow").text(response.rentRangeLow);
+//     // // $("#outputRentHigh").text(response.rentRangeHigh);
+//     // $("#outputListing1Address").text("Address: " + response.listings[0].address);
+//     // $("#outputListing1Price").text("Price: " + response.listings[0].price);
+//     // if ((response.listings[0].squareFootage).toString().length > 0) {
+//     //   $("#outputLIstings1SquareFootage").show();
+//     //   $("#outputListing1SquareFootage").text("Square Footage: " + response.listings[0].squareFootage);
+//     // } else {
+//     //   $("#outputLIstings1SquareFootage").hide();
 
-    $("#outputListing2").text(response.listings[1]);
-    $("#outputListing3").text(response.listings[2]);
-    $("#outputListing4").text(response.listings[3]);
-    $("#outputListing5").text(response.listings[4]);
+//     // }
+//     // // let string = response.listings[0].squareFootage.toString("");
 
-    // Display Listing TEST TEST//
-    // lisitng array from API call will be a variable number of elements from 1-10 //
+//     // $("#outputListing1DaysOnMarket").text("This property has been on the market for " + response.listings[0].daysOld + " days.");
+//     // $("#outputListing1Bedrooms").text("Bedrooms: " + response.listings[0].bedrooms);
+//     // $("#outputListing1Bathrooms").text("Bathrooms: " + response.listings[0].bathrooms);
 
-    response.listings.forEach(function (property) {
-      $("rentData");
+//     // $("#outputListing2").text(response.listings[1]);
+//     // $("#outputListing3").text(response.listings[2]);
+//     // $("#outputListing4").text(response.listings[3]);
+//     // $("#outputListing5").text(response.listings[4]);
 
-      console.log(property.address);
-      //$("#outputListing1Address").text(property.address);
+//     // // Display Listing TEST TEST//
+//     // // lisitng array from API call will be a variable number of elements from 1-10 //
 
-      //$("#outputListing1Price").text(property.price);
 
-      //$("#outputListing1SquareFootage").text(property.squareFootage);
 
-      //$("#outputListing1DaysOnMarket").text("This property has been on the market for " + response.listings[0].daysOld + " days.");
+//     // // use a carousel or other bootstrap feature to allow user to look through lisitngs in neighborhood //
 
-      //$("#outputListing1Bedrooms").text(response.listings[0].bedrooms);
+//     // // Test output
+//     // $("#result").text(response);
+//     // console.log(response);
+//   }
+// }
 
-      //$("#outputListing1Bathrooms").text(response.listings[0].bathrooms);
-    });
-
-    // use a carousel or other bootstrap feature to allow user to look through lisitngs in neighborhood //
-
-    // Test output
-    $("#result").text(response);
-    console.log(response);
-  }
-}
+let otherClick = function () {
+  $("#portland-vector").show();
+  $(".neighbor-show").hide();
+  $("#but").show();
+  $("#back-to-map").hide();
+};
 
 $(document).ready(function () {
+  $("#api-call").click(function () {
+  });
 
+
+  otherClick();
   $("body").fadeIn(2000);
 
   let newNeighborhoods = "";
-  let reply_click = function() {
+  let reply_click = function () {
     newNeighborhoods = this.id;
     $(".cityInfo").hide();
     $("#neighborhood").html((((this.id).split(/(?=[A-Z])/)).join(' ')).toLowerCase() + "<hr>");
@@ -73,122 +69,83 @@ $(document).ready(function () {
 
   let detailClick = function () {
     $("#portland-vector").hide();
-    $("#neighbor-show").show();
+    $(".neighbor-show").show();
     $("#but").hide();
-
-    
+    $("#back-to-map").show();
   };
 
-  $("#but").click(function() {
-    detailClick();
-  
-  
+  $("#back-to-map").click(function () {
+    otherClick();
   });
 
-  document.getElementById('saintJohns').onclick = reply_click;
-  document.getElementById('forestPark').onclick = reply_click;
-  document.getElementById('linnton').onclick = reply_click;
-  document.getElementById('sunderland').onclick = reply_click;
-  document.getElementById('farSouthwest').onclick = reply_click;
-  document.getElementById('northwest').onclick = reply_click;
-  document.getElementById('pleasantValley').onclick = reply_click;
-  document.getElementById('cully').onclick = reply_click;
-  document.getElementById('bridgeton').onclick = reply_click;
-  document.getElementById('hazelwood').onclick = reply_click;
-  document.getElementById('maplewoodAshcreek').onclick = reply_click;
-  document.getElementById('lents').onclick = reply_click;
-  document.getElementById('governmentIsland').onclick = reply_click;
-  document.getElementById('powellhurst').onclick = reply_click;
-  document.getElementById('wilkes').onclick = reply_click;
-  document.getElementById('kenton').onclick = reply_click;
-  document.getElementById('parkrose').onclick = reply_click;
-  document.getElementById('roseway').onclick = reply_click;
-  document.getElementById('argay').onclick = reply_click;
-  document.getElementById('centennial').onclick = reply_click;
-  document.getElementById('overlook').onclick = reply_click;
-  document.getElementById('montevilla').onclick = reply_click;
-  document.getElementById('sellwoodMoreland').onclick = reply_click;
-  document.getElementById('cathedralPark').onclick = reply_click;
-  document.getElementById('hadenIsland').onclick = reply_click;
-  document.getElementById('hillsdale').onclick = reply_click;
-  document.getElementById('richmond').onclick = reply_click;
-  document.getElementById('brentwoodDarlington').onclick = reply_click;
-  document.getElementById('woodlawn').onclick = reply_click;
-  document.getElementById('corbettTerwilligerLairHill').onclick = reply_click;
-  document.getElementById('mountTabor').onclick = reply_click;
-  document.getElementById('southwestHills').onclick = reply_click;
-  document.getElementById('king').onclick = reply_click;
-  document.getElementById('hosford').onclick = reply_click;
-  document.getElementById('concordia').onclick = reply_click;
-  document.getElementById('woodstock').onclick = reply_click;
-  document.getElementById('bridlemile').onclick = reply_click;
-  document.getElementById('hayhurst').onclick = reply_click;
-  document.getElementById('center').onclick = reply_click;
-  document.getElementById('eastMoreland').onclick = reply_click;
-  document.getElementById('millpark').onclick = reply_click;
-  document.getElementById('buckman').onclick = reply_click;
-  document.getElementById('portsmith').onclick = reply_click;
-  document.getElementById('alameda').onclick = reply_click;
-  document.getElementById('universityPark').onclick = reply_click;
-  document.getElementById('downtown').onclick = reply_click;
-  document.getElementById('mountScott').onclick = reply_click;
-  document.getElementById('eliot').onclick = reply_click;
-  document.getElementById('arborLodge').onclick = reply_click;
-  document.getElementById('irvington').onclick = reply_click;
-  document.getElementById('southTabor').onclick = reply_click;
-  document.getElementById('fosterPowell').onclick = reply_click;
-  document.getElementById('boise').onclick = reply_click;
-  document.getElementById('crestonKenilworth').onclick = reply_click;
-  document.getElementById('kerns').onclick = reply_click;
-  document.getElementById('brooklyn').onclick = reply_click;
-  document.getElementById('reed').onclick = reply_click;
-  document.getElementById('lloyd').onclick = reply_click;
-  document.getElementById('pearlDistrict').onclick = reply_click;
-  document.getElementById('bossIsland').onclick = reply_click;
-  document.getElementById('oldTownChinatown').onclick = reply_click;
+  $("#check-listing").click(function () {
+    detailClick();
+  });
+
 
   getNeighborhoods(reply_click);
 
+  let neighborhoodInput = "";
+  let displayNeighbor = "";
+
   $("#check-listing").click(function () {
-    // test input
-    console.log(newNeighborhoods);
-    let neighborhoodInput = newNeighborhoods;
-    let displayNeighbor = neighborhoodInput.charAt(0).toUpperCase()+neighborhoodInput.slice(1);
-    console.log(displayNeighbor);
-    // let neighborhoodInput = $("#neighborhood");
-    // findNeighborhoodCoordinates(neighborhoodInput);
-    let input = 1200;
-    let squareFootageInput = "&squareFootage=" + input;
+    neighborhoodInput = newNeighborhoods;
+    displayNeighbor = neighborhoodInput.charAt(0).toUpperCase() + neighborhoodInput.slice(1);
+  });
 
-    // let squareFootageInput = $("#squareFootage");
-    let bathroomInput = 3;
-    let propertyTypeInput = "apartment";
-    let bedroomInput = 4;
 
-    // writeListings(reponse.listings);
+  $("#f1").submit(function () {
+    event.preventDefault();
+    let squareFootageInput = parseInt($("#square-feet").val());
+    let bedroomInput = parseInt($("#bedrooms").val());
+    let bathroomInput = parseInt($("#bathrooms").val());
+    let propertyTypeInput = $("#type").val();
 
-    // let squareFootageInput = $("#squareFootage");
-    // let bathroomInput = $("#bathrooms");
-    // let propertyTypeInput = $("#property");
-    // let bedroomInput = $("#bedroom");
+    console.log('watup');
+    let apiKey = process.env.API_KEY;
+    console.log(apiKey);
 
     const latitudeInput = neighborhoods[neighborhoodInput].latitude;
-
     const longitudeInput = neighborhoods[neighborhoodInput].longitude;
 
-    // FORREST TEST CODE //
-    
-    
-    RentalService.getRentals(squareFootageInput, bathroomInput, latitudeInput, longitudeInput, propertyTypeInput, bedroomInput) 
-      .then(function(response) {
-        getElements(response);
-        $("#rentData h3").text(`The average rent for your search criteria in ${displayNeighbor} neighborhood is $ ${response.rent}`);
+    console.log(squareFootageInput, bathroomInput, latitudeInput, longitudeInput, propertyTypeInput, bedroomInput);
+
+    $("#rentData").show();
+
+    RentalService.getRentals(squareFootageInput, bedroomInput, latitudeInput, longitudeInput, propertyTypeInput, bathroomInput)
+      .then(function (response) {
+        console.log(response);
+        $("#rentData h3").text(`Average rent for your property search in ${displayNeighbor} is $ ${response.rent}`);
         $("#rentData p").text(`The lowest rent is $ ${response.rentRangeLow} and the highest rent is $ ${response.rentRangeHigh} `);
-        $("#rentData ul").html("<li>" + response.listings[0].address + "</li>" + "<li>" + response.listings[1].address + "</li>");
-        $("#rentData ul").html("<li>" + response.listings[1].address + "</li>");
-        $("#rentData ul").html("<li>" + response.listings[2].address + "</li>");
-        $("#rentData ul").html("<li>" + response.listings[3].address + "</li>");
-        $("#rentData ul").html("<li>" + response.listings[4].address + "</li>");
+        $("#rentData ul").html("<li>" + response.listings[0].address + "</li>" + "<li>" + response.listings[1].address + "</li>" + "<li>" + response.listings[2].address + "</li>" + "<li>" + response.listings[3].address + "</li>" + "<li>" + response.listings[4].address + "</li>");
       });
   });
 });
+
+
+
+
+
+
+
+
+// ------------ example card --------------
+
+
+/* <div class="card" class="form-group" class="radio">
+    <div class="card-body">
+      <label for="question1"><u><strong>Would you rather:</strong></u></label>
+      <div class="radio">
+        <label>
+          <input type="radio" name="question1" value="cats">
+          a. Own 100 cats named Jeffery
+        </label>
+      </div>
+      <div class="radio">
+        <label>
+          <input type="radio" name="question1" value="chins">
+          b. Own 200 grey Chinchillas
+        </label>
+      </div>
+    </div>  
+  </div> */
