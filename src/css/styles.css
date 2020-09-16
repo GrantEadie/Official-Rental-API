@@ -148,3 +148,7 @@ hr {
   border-top: 1px solid black;
   display: none;
 }
+
+#neighbor-show {
+  display:none;
+}
