@@ -8,3 +8,7 @@ button {
   width: 120px;
 
 }
+
+#show-listings {
+  display: none;
+}

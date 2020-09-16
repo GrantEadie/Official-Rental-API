@@ -74,6 +74,7 @@ $(document).ready(function () {
     // let bedroomInput = $("#bedroom");
     
     const latitudeInput = neighborhoods[neighborhoodInput].latitude;
+    
     const longitudeInput = neighborhoods[neighborhoodInput].longitude;
 
     // FORREST TEST CODE //
@@ -84,7 +85,7 @@ $(document).ready(function () {
       .then(function(response) {
         getElements(response);
         $("#rentData h3").text(`The average rent for your search criteria in ${displayNeighbor} neighborhood is $ ${response.rent}`);
-        $("#rentData p").text(`The lowest rent is $ ${response.rentRangeLow} and the high rent is $ ${response.rentRangeHigh} `);
+        $("#rentData p").text(`The lowest rent is $ ${response.rentRangeLow} and the highest rent is $ ${response.rentRangeHigh} `);
         $("#rentData ul").html("<li>" + response.listings[0].address + "</li>" + "<li>" + response.listings[1].address + "</li>");
         $("#rentData ul").html("<li>" + response.listings[1].address + "</li>");
         $("#rentData ul").html("<li>" + response.listings[2].address + "</li>");
