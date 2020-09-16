@@ -20,7 +20,7 @@
   position:absolute;
       top: 300px;
       left: 200px;
-      z-index: 1;
+      z-index: 0;
   width: 65rem;
   display: block;
   margin-left: auto;
@@ -130,16 +130,18 @@ a:hover {
 }
 
 .cityInfo {
+  position:relative;
   display: none;
-}
-
-#neighborhood {
   z-index: 2;
   float: right;
   font-size: 35px;
   padding-right: 380px;
   padding-top: 120px;
 }
+
+/* #neighborhood {
+  
+} */
 
 hr {
   margin-top: -2px;

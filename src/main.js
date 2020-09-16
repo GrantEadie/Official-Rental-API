@@ -54,8 +54,10 @@ $(document).ready(function () {
 
   $("body").fadeIn(2000);
 
+  let newNeighborhoods = "";
   let reply_click = function()
     {
+      newNeighborhoods = this.id;
       $(".cityInfo").hide()
       $("#neighborhood").html((((this.id).split(/(?=[A-Z])/)).join(' ')).toLowerCase() + "<hr>");
       $(".cityInfo").fadeIn(1000);
@@ -64,9 +66,10 @@ $(document).ready(function () {
 
   getNeighborhoods(reply_click);
 
-  $("#executeButton").click(function () {
+  $("#check-listing").click(function () {
     // test input
-    let neighborhoodInput = "laurelhurst";
+    console.log(newNeighborhoods);
+    let neighborhoodInput = newNeighborhoods;
     let displayNeighbor = neighborhoodInput.charAt(0).toUpperCase()+neighborhoodInput.slice(1);
     console.log(displayNeighbor);
     // let neighborhoodInput = $("#neighborhood");
@@ -92,7 +95,6 @@ $(document).ready(function () {
 
     // FORREST TEST CODE //
     
-    console.log(neighborhoods[neighborhoodInput].latitude);
     
     RentalService.getRentals(squareFootageInput, bathroomInput, latitudeInput, longitudeInput, propertyTypeInput, bedroomInput) 
       .then(function(response) {
