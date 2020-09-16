@@ -1,7 +1,7 @@
 export default class RentalService {
-  static getRentals(){
+  static getRentals(squareFootage, bathrooms, latitude, longitude, propertyType, bedrooms){
     const apiKey = `${process.env.API_KEY}`;
-    return fetch(`https://realty-mole-property-api.p.rapidapi.com/rentalPrice?compCount=5&squareFootage=1600&bathrooms=2&latitude=45.516933&longitude=-122.643568&propertyType=Apartment&bedrooms=4`, {
+    return fetch(`https://realty-mole-property-api.p.rapidapi.com/rentalPrice?compCount=8${squareFootage}&bathrooms=${bathrooms}&latitude=${latitude}&longitude=${longitude}&propertyType=${propertyType}&bedrooms=${bedrooms}`, {
       "method": "GET",
       "headers": {
         "x-rapidapi-host": "realty-mole-property-api.p.rapidapi.com",
