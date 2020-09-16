@@ -3,7 +3,8 @@ import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/styles.css';
 import RentalService from './rental-service.js';
-import { neighborhoods } from './neighborhood.js';
+import {neighborhoods} from './neighborhood.js';
+import {getNeighborhoods} from './selector.js';
 
 function getElements(response) {
   if (response) {
@@ -11,7 +12,15 @@ function getElements(response) {
     // $("#outputRentHigh").text(response.rentRangeHigh);
     $("#outputListing1Address").text("Address: " + response.listings[0].address);
     $("#outputListing1Price").text("Price: " + response.listings[0].price);
-    $("#outputListing1SquareFootage").text("Square Footage: " + response.listings[0].squareFootage);
+    if (response.listings[0].squareFootage.length > 0) {
+      $("#outputLIstings1SquareFootage").show();
+      $("#outputListing1SquareFootage").text("Square Footage: " + response.listings[0].squareFootage);
+    } else {
+      $("#outputLIstings1SquareFootage").hide();
+      
+    }
+    // let string = response.listings[0].squareFootage.toString("");
+    console.log((response.listings[0].squareFootage).length);
     $("#outputListing1DaysOnMarket").text("This property has been on the market for " + response.listings[0].daysOld + " days.");
     $("#outputListing1Bedrooms").text("Bedrooms: " + response.listings[0].bedrooms);
     $("#outputListing1Bathrooms").text("Bathrooms: " + response.listings[0].bathrooms);
@@ -49,12 +58,13 @@ function getElements(response) {
   }
 }
 
-
 $(document).ready(function () {
 
   $("body").fadeIn(2000);
 
-  let reply_click = function () {
+  let newNeighborhoods = "";
+  let reply_click = function() {
+    newNeighborhoods = this.id;
     $(".cityInfo").hide();
     $("#neighborhood").html((((this.id).split(/(?=[A-Z])/)).join(' ')).toLowerCase() + "<hr>");
     $(".cityInfo").fadeIn(1000);
@@ -137,11 +147,13 @@ $(document).ready(function () {
   document.getElementById('bossIsland').onclick = reply_click;
   document.getElementById('oldTownChinatown').onclick = reply_click;
 
+  getNeighborhoods(reply_click);
 
-  $("#executeButton").click(function () {
+  $("#check-listing").click(function () {
     // test input
-    let neighborhoodInput = "laurelhurst";
-    let displayNeighbor = neighborhoodInput.charAt(0).toUpperCase() + neighborhoodInput.slice(1);
+    console.log(newNeighborhoods);
+    let neighborhoodInput = newNeighborhoods;
+    let displayNeighbor = neighborhoodInput.charAt(0).toUpperCase()+neighborhoodInput.slice(1);
     console.log(displayNeighbor);
     // let neighborhoodInput = $("#neighborhood");
     // findNeighborhoodCoordinates(neighborhoodInput);
@@ -165,11 +177,10 @@ $(document).ready(function () {
     const longitudeInput = neighborhoods[neighborhoodInput].longitude;
 
     // FORREST TEST CODE //
-
-    console.log(neighborhoods[neighborhoodInput].latitude);
-
-    RentalService.getRentals(squareFootageInput, bathroomInput, latitudeInput, longitudeInput, propertyTypeInput, bedroomInput)
-      .then(function (response) {
+    
+    
+    RentalService.getRentals(squareFootageInput, bathroomInput, latitudeInput, longitudeInput, propertyTypeInput, bedroomInput) 
+      .then(function(response) {
         getElements(response);
         $("#rentData h3").text(`The average rent for your search criteria in ${displayNeighbor} neighborhood is $ ${response.rent}`);
         $("#rentData p").text(`The lowest rent is $ ${response.rentRangeLow} and the highest rent is $ ${response.rentRangeHigh} `);
