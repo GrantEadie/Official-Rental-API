@@ -2,13 +2,8 @@
   display: none;
 }
 
-/* button {
-  margin: 20px 0px 20px 0px;
-  width: 200px;
-} */
-
 .form-control {
-  width: 120px;
+  width: 180px;
 
 }
 
@@ -63,6 +58,7 @@ html, body {
   padding: 0;
   width: 100%;
 }
+
 
 body {
   display:none;
@@ -139,16 +135,49 @@ a:hover {
   padding-top: 120px;
 }
 
-/* #neighborhood {
-  
-} */
-
 hr {
   margin-top: -2px;
   border-top: 1px solid black;
   display: none;
 }
 
-#neighbor-show {
-  display:none;
+.neighbor-show {
+  display: none;
+  margin: auto;
+  width: 50%;
+}
+
+#back-to-map{
+  display: none;
+  margin-top: 15px;
+}
+
+#api-call{
+  margin-top:20 px;
+  
+}
+
+#f1 {
+  padding: 45px;
+}
+
+h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bolder;
+  font-size: xx-large;
+
+}
+
+#type {
+  width: auto;
+}
+
+#rentData {
+  display: none;
+  font-family: 'Montserrat', sans-serif;
+  margin: auto;
+  width: 50%;
+}
+footer {
+  height: 100px;
 }

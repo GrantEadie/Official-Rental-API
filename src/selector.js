@@ -10,6 +10,8 @@ export function getNeighborhoods(reply_click) {
   document.getElementById('bridgeton').onclick = reply_click;
   document.getElementById('hazelwood').onclick = reply_click;
   document.getElementById('maplewoodAshcreek').onclick = reply_click;
+  document.getElementById('madisonSouth').onclick = reply_click;
+  document.getElementById('homestead').onclick = reply_click;
   document.getElementById('lents').onclick = reply_click;
   document.getElementById('governmentIsland').onclick = reply_click;
   document.getElementById('powellhurst').onclick = reply_click;
@@ -20,10 +22,10 @@ export function getNeighborhoods(reply_click) {
   document.getElementById('argay').onclick = reply_click;
   document.getElementById('centennial').onclick = reply_click;
   document.getElementById('overlook').onclick = reply_click;
-  document.getElementById('montevilla').onclick = reply_click;
+  document.getElementById('montavilla').onclick = reply_click;
   document.getElementById('sellwoodMoreland').onclick = reply_click;
   document.getElementById('cathedralPark').onclick = reply_click;
-  document.getElementById('hadenIsland').onclick = reply_click;
+  document.getElementById('haydenIsland').onclick = reply_click;
   document.getElementById('hillsdale').onclick = reply_click;
   document.getElementById('richmond').onclick = reply_click;
   document.getElementById('brentwoodDarlington').onclick = reply_click;
@@ -41,7 +43,7 @@ export function getNeighborhoods(reply_click) {
   document.getElementById('eastMoreland').onclick = reply_click;
   document.getElementById('millpark').onclick = reply_click;
   document.getElementById('buckman').onclick = reply_click;
-  document.getElementById('portsmith').onclick = reply_click;
+  document.getElementById('portsmouth').onclick = reply_click;
   document.getElementById('alameda').onclick = reply_click;
   document.getElementById('universityPark').onclick = reply_click;
   document.getElementById('downtown').onclick = reply_click;
@@ -58,7 +60,7 @@ export function getNeighborhoods(reply_click) {
   document.getElementById('reed').onclick = reply_click;
   document.getElementById('lloyd').onclick = reply_click;
   document.getElementById('pearlDistrict').onclick = reply_click;
-  document.getElementById('bossIsland').onclick = reply_click;
+  document.getElementById('rossIsland').onclick = reply_click;
   document.getElementById('oldTownChinatown').onclick = reply_click;
 }
 

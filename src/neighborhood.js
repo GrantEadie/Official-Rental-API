@@ -58,22 +58,38 @@ export let neighborhoods = {
   concordia: {
     latitude : 45.565746,
     longitude :  -122.632625
+  }, 
+  corbettTerwilligerLairHill: {
+    latitude : 45.470605,
+    longitude :  -122.680089
+  },
+  crestonKenilworth: {
+    latitude : 45.493894,
+    longitude :  -122.623132
   },
   cully: {
     latitude : 45.561300,
     longitude :  -122.602049
   },
+  downtown: {
+    latitude : 45.518075,
+    longitude :  -122.677819
+  },
   eastmoreland: {
     latitude : 45.472651,
     longitude : -122.630036
   },
-  elliot: {
+  eliot: {
     latitude : 45.541184,
     longitude : -122.668490
   },
   farSouthwest: {
     latitude : 45.456595,
     longitude : -122.701771
+  },
+  forestPark: {
+    latitude : 45.560218,
+    longitude : -122.758933
   },
   fosterPowell: {
     latitude : 45.493112,
@@ -115,7 +131,7 @@ export let neighborhoods = {
     latitude : 45.543423,
     longitude : -122.653313
   },
-  kentonPark: {
+  kenton: {
     latitude : 45.581927,
     longitude : -122.694039
   },
@@ -151,13 +167,21 @@ export let neighborhoods = {
     latitude : 45.467031,
     longitude :  -122.733749
   },
+  millpark: {
+    latitude : 45.511640,
+    longitude :  -122.539458
+  },
   montavilla: {
     latitude : 45.519039,
     longitude :  -122.577508
   },
-  mtScott: {
+  mountScott: {
     latitude : 45.481077,
     longitude :  -122.592585
+  },
+  mountTabor: {
+    latitude : 45.515369,
+    longitude :  -122.600247
   },
   nobHill: {
     latitude : 45.528571,
@@ -167,6 +191,10 @@ export let neighborhoods = {
     latitude : 45.533562,
     longitude : -122.701271
   },
+  oldTownChinatown: {
+    latitude : 45.524811,
+    longitude : -122.674041
+  },
   overlook: {
     latitude : 45.558896,
     longitude : -122.692849
@@ -174,6 +202,10 @@ export let neighborhoods = {
   parkrose: {
     latitude : 45.557190,
     longitude : -122.551075
+  },
+  pearlDistrict: {
+    latitude : 45.528960,
+    longitude : -122.681718
   },
   piedmont: {
     latitude : 45.567868,
@@ -203,6 +235,10 @@ export let neighborhoods = {
     latitude : 45.546728,
     longitude : -122.584155
   },
+  rossIsland: {
+    latitude : 45.486312,
+    longitude : -122.657740
+  },
   sellwoodMoreland: {
     latitude: 45.471207,
     longitude:-122.652195
@@ -215,7 +251,7 @@ export let neighborhoods = {
     latitude: 45.502646,
     longitude:-122.593655
   },
-  stJohns: {
+  saintJohns: {
     latitude: 45.592097,
     longitude:-122.747639
   },
