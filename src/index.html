@@ -1,61 +1,32 @@
 <html lang="en-US">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <head>
-  <title>Title Here</title>
+  <title>Hygge. - Portland, Oregon</title>
 </head>
 <body>
-  <div class="container">
-    <div class="hide">
-      
-    <button class="btn btn-success btn-lg" id="executeButton">Search</button>
-      
-    <div id="outputRentLow"></div>
-    <div id="outputRentHigh"></div>
-    <div id="outputListing1Address"></div>
-    <div id="outputListing1Price"></div>
-    <div id="outputListing1Bedrooms"></div>
-    <div id="outputListing1Bathrooms"></div>
-    <div id="outputListing1SquareFootage"></div>
-    <div id="outputListing1DaysOnMarket"></div>
-    <!-- test div -->
-    <div id="result"></div>
-    </div>
-    <div id="show-listings">
-      <p>The rent for this address is: <span class="price"></span></p>
-      <p>This listing is  <span class="days-old"></span> days old.</p>
-      <p>This address has <span class="bedrooms"></span> bedrooms and <span class="bathrooms"></span> bathrooms.</p>
-      <p>This address is classified as a(n): <span class="unit-type"></span></p>
-      <p>The correlation index for this address to your search criteria is: <span class="correlation"></span></p>
-      <div id="buttons">
-      </div>
-    </div>
-  </div>
-  <!-- </div> -->
-
   <!-- MAIN INDEX UI -->
   <div class="container">
     <div class="align-self-center">
       <nav>
-          <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Blog</a></li>
-            <li><a href="#">Contact</a></li>
-          </ul>
-        </div>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
       </nav>
-      <div class="jumbotron">
-        <h1>&#10061 Hygge. <span class="small">Portland, OR</span></h1>
-      </div>
-      <form id="search">
-        <div class="input-group input-group-sm mb-3">
-          <input type="text" class="form-control" placeholder="Enter a Portland neighborhood or zipcode">
-          <div class="input-group-append">
-            <button type="submit" class="btn btn-outline-dark">Search</button>
-          </div>
-        </div>
-      </form>
     </div>
+    <div class="jumbotron">
+      <h1>&#10061 Hygge. <span class="small">Portland, OR</span></h1>
+    </div>
+    <form id="search">
+      <div class="input-group input-group-sm mb-3">
+        <input type="text" class="form-control" id="address" placeholder="Enter a Portland neighborhood or zipcode">
+        <div class="input-group-append">
+          <button type="submit" class="btn btn-outline-dark">Search</button>
+        </div>
+      </div>
+    </form>
   </div>
   <div class="cityInfo">
     <p id="neighborhood"></p>
@@ -63,49 +34,56 @@
     <button type="submit" id="back-to-map" class="btn btn-outline-dark btn-sm btn-block">back to map</button>
   </div>
   <div class="container">
-  <div class="neighbor-show">
-    <form id="f1">
-      <h3>rental parameters</h3>
-      <div class="form-group">
-        <label for="square-feet">Enter a square footage:</label>
-        <input type="number" class="form-control" id="square-feet" placeholder="1500">
-      <small id="square-feet" class="form-text text-muted">Typically a number from 800 to 4000</small>
-      <div class="form-group">
-        <label for="bedrooms">Number of bedrooms:</label>
-        <input type="number" class="form-control" id="bedrooms" placeholder="3">
+    <div class="neighbor-show">
+      <form id="f1">
+        <h3>rental parameters</h3>
+        <div class="form-group">
+          <label for="square-feet">Enter a square footage:</label>
+          <input type="number" class="form-control" id="square-feet" placeholder="1500">
+          <small id="square-feet" class="form-text text-muted">Typically a number from 800 to 4000</small>
+        </div>
+        <div class="form-group">
+          <label for="bedrooms">Number of bedrooms:</label>
+          <input type="number" class="form-control" id="bedrooms" placeholder="3">
+        </div>
+        <div class="form-group">
+          <label for="bathrooms">Number of bathrooms:</label>
+          <input type="number" class="form-control" id="bathrooms" placeholder="3">
+        </div>
+        <label for="property-type">Choose the property type:</label>
+        <select class="form-control" id="type">
+          <option value="apartment"><strong>Apartment</strong></option>
+          <option value="single family"><strong>Single Family</strong></option>
+          <option value="townhouse"><strong>Townhouse</strong></option>
+          <option value="condo"><strong>Condo</strong></option>
+          <option value="duplex-triplex"><strong>Duplex-Triplex</strong></option>
+        </select>
+        <button type="submit" id="api-call" class="btn btn-outline-dark btn-md">search</button>
+      </form>
+    </div>
+    <div id="#errorMessageOutput"></div>
+    <div class="card" id="rentData">
+      <div class="card-body">
+        <h3> </h3>
+        <p id="low-high"> </p>
+
+        <ul id="property-listings">
+        </ul>
+        <hr>
+        <div id="show-address">
+          <div id="address-display"></div>
+          <hr>
+          <p >The monthly rent is: $<span id="property-price"></span> </p>
+          <p>This property has been on the market for <span id="days-on-market"></span>  days </p>
+          <p>This property has <span id="output-bedrooms"></span> bedrooms.</p>
+          <p>This property has <span id="output-bathrooms"></span> bedrooms.</p>
+          <p>The correlation index is <span id="correlation"></span></p>
+          <p>This property is <span id="square-footage"></span> square-feet.</p>
+          <p>Zipcode: <span id="zipcode"></span> </p>
+          
+        </div>
       </div>
-
-      <div class="form-group">
-        <label for="bathrooms">Number of bathrooms:</label>
-        <input type="number" class="form-control" id="bathrooms" placeholder="3">
-      </div>
-
-      <label for="property-type">Choose the property type:</label>
-      <select class="form-control" id="type">
-        <option value="apartment"><strong>Apartment</strong></option>
-        <option value="single family"><strong>Single Family</strong></option>
-        <option value="townhouse"><strong>Townhouse</strong></option>
-        <option value="condo"><strong>Condo</strong></option>
-        <option value="duplex-triplex"><strong>Duplex-Triplex</strong></option>
-      </select>
-
-      
-      
-      </div>
-      <button type="submit" id="api-call" class="btn btn-outline-dark btn-md neighbor-show">search</button>
-    </form>
-  </div>
-  <div class="card" id="rentData">
-    <div class="card-body">
-    <h3> </h3>
-    <p> </p>
-
-    <ul>
-    
-    </ul>
-  
-  </div>
-
+    </div>
   </div>
   <svg class="portland-vector" id="portland-vector" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 602.26 509.38"><title>portland-vector2-01</title>
     <path id="saintJohns" value="Saint Johns" class="highlight" d="M133.65,166.22c-10.44,4.12-20.56,8-30.57,12.12-2.56,1.05-3.79.66-5-1.8-2.27-4.47-4.75-8.87-7.42-13.11-5.53-8.77-9.27-18.3-12.53-28.06a8.83,8.83,0,0,1-.58-3.32c0.71-9.45,1.51-18.9,2.3-28.34a18.67,18.67,0,0,1,.39-1.93l7-.62-0.36-6-4.3-.53C97,81.66,111.85,69.34,121,51.31l16.53,15.25a0.92,0.92,0,0,1,.37.54c-1.22,4.92,3.19,6.59,5.56,9.27q15.2,17.2,30.78,34.05a13,13,0,0,0,5.64,3.47,22.53,22.53,0,0,1,12.53,8.42,9.82,9.82,0,0,0,3.39,2.81c6.95,3.55,12.57,9.45,20.66,11.07,3.22,0.64,4,3.26,2.07,5.92-3.94,5.42-8.14,10.67-12.42,15.83-7,8.44-14.11,16.78-21.25,25.1-1.15,1.33-2.8,2.22-4,3.51a5.49,5.49,0,0,0-1.32,2.8c-0.52,3.44-1.4,4.15-4.63,3.23-8.23-2.36-16.44-4.81-24.69-7.09-3.92-1.08-6.9-3-8.88-6.74C139.14,174.52,136.37,170.58,133.65,166.22Z" transform="translate(-4.87 -51.31)"/>

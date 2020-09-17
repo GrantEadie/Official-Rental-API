@@ -1,10 +1,14 @@
+ul {
+  list-style: square;
+}
+
 .hide {
   display: none;
 }
 
 .form-control {
   width: 180px;
-
+  border: 1px solid rgba(0, 0, 0, 0.8);
 }
 
 #show-listings {
@@ -153,8 +157,8 @@ hr {
 }
 
 #api-call{
-  margin-top:20 px;
-  
+  margin-top: 20px;
+  width: 50%;
 }
 
 #f1 {
@@ -172,7 +176,7 @@ h3 {
   width: auto;
 }
 
-#rentData {
+#rentData{
   display: none;
   font-family: 'Montserrat', sans-serif;
   margin: auto;
@@ -181,3 +185,28 @@ h3 {
 footer {
   height: 100px;
 }
+
+#show-contact {
+  display: none;
+}
+
+#show-address {
+  display: none;
+}
+
+.form-control::placeholder {
+  color: rgba(0, 0, 0, 0.5);
+  opacity: 1; /* Firefox */
+}
+.form-control:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: rgba(0, 0, 0, 0.4);
+ }
+ 
+ .form-control::-ms-input-placeholder { /* Microsoft Edge */
+  color: rgba(0, 0, 0, 0.4);
+ }
+
+ #errorMessageOutput {
+   font-size: 28px;
+   font-weight: bold;
+ }
