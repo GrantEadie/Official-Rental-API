@@ -111,6 +111,12 @@ export let neighborhoods = {
     latitude : 45.617700,
     longitude : -122.730811
   },
+
+  hazelwood: {
+    latitude : 45.529093,
+    longitude : -122.533263
+  },
+
   hillsdale: {
     latitude : 45.478911,
     longitude : -122.695771
