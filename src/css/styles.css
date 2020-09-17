@@ -17,19 +17,22 @@ ul {
 
 .portland-vector {
   position:absolute;
-      top: 300px;
-      left: 200px;
-      z-index: 0;
+  top: 300px;
+  left: 200px;
+  z-index: 0;
   width: 65rem;
   display: block;
   margin-left: auto;
   margin-right: auto;
 }
 
+.back-black {
+  fill: black;
+}
+
 .highlight:hover {
-  transition-duration: 150ms;
-  opacity: .75;
-  fill: lightblue;
+  transition-duration: 50ms;
+  opacity: .55;
   cursor: crosshair;
 }
 
@@ -195,7 +198,7 @@ footer {
 }
 
 .form-control::placeholder {
-  color: rgba(0, 0, 0, 0.5);
+  color: rgba(0, 0, 0, 0.4);
   opacity: 1; /* Firefox */
 }
 .form-control:-ms-input-placeholder { /* Internet Explorer 10-11 */

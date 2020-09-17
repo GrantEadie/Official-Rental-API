@@ -51,6 +51,8 @@ $(document).ready(function () {
   // Click on a neighborhood in the portland map to output new neighborhood info and hide previous clicked info from the SVG 
   let reply_click = function () {
     newNeighborhoods = this.id;
+    $(".highlight").css("fill", "black");
+    $("#" + this.id + "").css("fill", "lightblue");
     $(".cityInfo").hide();
     $("#neighborhood").html((((this.id).split(/(?=[A-Z])/)).join(' ')).toLowerCase() + "<hr>");
     $(".cityInfo").fadeIn(1000);
