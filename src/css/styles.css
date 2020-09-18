@@ -1,23 +1,27 @@
 ul {
-  list-style: square;
+  list-style: circle;
 }
 
 .hide {
   display: none;
 }
 
-.form-control {
-  width: 180px;
-  border: 1px solid rgba(0, 0, 0, 0.8);
-}
-
 #show-listings {
   display: none;
 }
 
+#property-listings{
+  font-weight: 1000;
+}
+
+#property-type {
+  width: 200px;
+  padding-bottom: 20px
+}
+
 .portland-vector {
   position:absolute;
-  top: 300px;
+  top: 250px;
   left: 200px;
   z-index: 0;
   width: 65rem;
@@ -133,25 +137,34 @@ a:hover {
 }
 
 .cityInfo {
-  position:relative;
+  position: relative;
   display: none;
-  z-index: 2;
+  z-index: 1;
   float: right;
   font-size: 35px;
-  padding-right: 380px;
-  padding-top: 120px;
+  padding-right: 170px;
+  margin-top: 120px;
 }
-
+hr#nice{
+  display: none;
+} 
+hr#line-animate{
+  position:absolute;
+  z-index: -1;
+  float:left;
+  border-top: 1px solid lightblue;
+  opacity: 75%;
+  width: 0px;
+}
 hr {
   margin-top: -2px;
   border-top: 1px solid black;
-  display: none;
 }
 
 .neighbor-show {
   display: none;
-  margin: auto;
-  width: 50%;
+  margin-left: -15px;
+  padding-top: 5px;
 }
 
 #back-to-map{
@@ -161,11 +174,6 @@ hr {
 
 #api-call{
   margin-top: 20px;
-  width: 50%;
-}
-
-#f1 {
-  padding: 45px;
 }
 
 h3 {
@@ -175,16 +183,16 @@ h3 {
 
 }
 
-#type {
-  width: auto;
-}
-
 #rentData{
   display: none;
   font-family: 'Montserrat', sans-serif;
-  margin: auto;
-  width: 50%;
+  width: 300px;
 }
+
+.bottom{
+  margin-bottom: 500px;
+}
+
 footer {
   height: 100px;
 }
@@ -195,6 +203,7 @@ footer {
 
 #show-address {
   display: none;
+  float: right;
 }
 
 .form-control::placeholder {
@@ -212,4 +221,9 @@ footer {
  #errorMessageOutput {
    font-size: 28px;
    font-weight: bold;
+ }
+
+ li:hover {
+  color: lightblue;
+  cursor: pointer;
  }

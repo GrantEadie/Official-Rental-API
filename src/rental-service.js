@@ -5,7 +5,7 @@ export default class RentalService {
       "method": "GET",
       "headers": {
         "x-rapidapi-host": "realty-mole-property-api.p.rapidapi.com",
-        "x-rapidapi-key": apiKey
+        "x-rapidapi-key": apiKey,
       }
     })
       .then(response => {
